@@ -1,0 +1,12 @@
+site_name: "UVSQ_M2_NewSpace_TP_mission_Insight"
+site_url: "https://nicoudart.github.io/UVSQ_M2_NewSpace_TP_mission_Insight"
+site_author: "Nicolas OUDART"
+
+theme:
+  name: readthedocs
+nav:
+  - Accueil: index.md
+  - 1. Contexte scientifique: 1_Contexte.md
+  - 2. Acquisition des mesures: 2_Acquisition.md
+  - 3. Transmission des données: 3_Transmission.md
+  - 4. Traitement et analyse: 4_Traitement.md
