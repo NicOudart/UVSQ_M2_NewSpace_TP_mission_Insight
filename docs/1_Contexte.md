@@ -2,7 +2,7 @@
 
 La mission Insight de la NASA a atterrit sur Mars en novembre 2018, et a fonctionné de février 2019 jusqu’à décembre 2022.
 
-![Insight](docs/img/Insight_mission.png)
+![Insight](img/Insight_mission.png)
 
 Ce TP se base sur l’article de P. Lognonné intitulé « SEIS: Insight’s Seismic Experiment for Internal Structure of Mars », publié dans Space Science Reviews en 2019.
 

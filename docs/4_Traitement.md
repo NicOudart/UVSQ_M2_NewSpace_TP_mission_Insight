@@ -74,7 +74,7 @@ plt.show()
 
 Vous devriez obtenir une série temporelle de la forme suivante :
 
-![Série temporelle brute](docs/img/Raw_time_series.png)
+![Série temporelle brute](img/Raw_time_series.png)
 
 * **Ce signal est-il causal ou acausal ? Est-il déterministe ou aléatoire ? Est-il périodique ou stationnaire ?**
 
@@ -143,7 +143,7 @@ Donnez des légendes pertinentes à votre figure.
 
 Vous devez obtenir une figure de la forme suivante :
 
-![Spectrogramme brut](docs/img/Raw_spectrogram.png)
+![Spectrogramme brut](img/Raw_spectrogram.png)
 
 On observe comme des oscillations parasites au niveau des flèches rouges : 
 
@@ -163,7 +163,7 @@ Appliquez cette nouvelle STFT au signal, et générez un nouveau spectrogramme a
 
 Vous devez obtenir une figure de la forme suivante :
 
-![Spectrogramme traité](docs/img/Processed_spectrogram.png)
+![Spectrogramme traité](img/Processed_spectrogram.png)
 
 ## Analyse après filtrage
 
@@ -176,7 +176,7 @@ Après les ondes de volume, arrivent en général les ondes de surface.
 Elles sont divisées en 2 catégories : ondes de Rayleigh et ondes de Love.
 De par leur nature, ce sont ces ondes sismiques qui provoquent le plus de dégâts à la surface de la Terre.
 
-![Ondes sismiques](docs/img/Seismic_waves.png)
+![Ondes sismiques](img/Seismic_waves.png)
 
 Les ondes de surface ne sont pas visibles sur notre spectrogramme car masquées par les ondes de volume. 
 Afin de les observer, nous allons donc devoir filtrer le signal.
