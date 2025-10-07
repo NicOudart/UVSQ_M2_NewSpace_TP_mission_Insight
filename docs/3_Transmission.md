@@ -3,7 +3,7 @@
 En parallèle d’Insight, la NASA a déployé 2 CubeSats 6U nommés MarCO-A et MarCO-B, comme démonstrateurs technologiques.
 Ils ont servi de relais entre Insight et la Terre durant la phase de descente.
 
-![MarCO](docs/img/MarCO_cubesats.png)
+![MarCO](img/MarCO_cubesats.png)
 
 Nous allons étudier rapidement le bilan de liaison donné par le JPL pour ce système.
 Voici selon le JPL les informations du budget de liaison Mars-Terre des satellites MarCO :

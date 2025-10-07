@@ -13,7 +13,7 @@ A partir de cet extrait, répondez aux questions suivantes :
 
 * **Quelle doit être la plage de fréquences des capteurs de SEIS afin de pouvoir mesurer les 3 types séismes ?**
 
-* **Quel doit être le nombre minimum d’échantillons acquis par seconde pour éviter le repliement de spectre ? **
+* **Quel doit être le nombre minimum d’échantillons acquis par seconde pour éviter le repliement de spectre ?**
 
 Pour information : la valeur choisie par l’équipe SEIS est de 20 échantillons par seconde.
 
