@@ -70,13 +70,13 @@ plt.title('…')
 plt.show()
 ~~~
 
-* **Affichez sous la forme d’une figure le signal de VBB sur l’axe u, avec un titre et des légendes correctes.**
+* **Question 13 : Affichez sous la forme d’une figure le signal de VBB sur l’axe u, avec un titre et des légendes correctes.**
 
 Vous devriez obtenir une série temporelle de la forme suivante :
 
 ![Série temporelle brute](img/Raw_time_series.png)
 
-* **Ce signal est-il causal ou acausal ? Est-il déterministe ou aléatoire ? Est-il périodique ou stationnaire ?**
+* **Question 14 : Ce signal est-il causal ou acausal ? Est-il déterministe ou aléatoire ? Est-il périodique ou stationnaire ?**
 
 ## Analyse spectrale par FFT
 
@@ -84,7 +84,7 @@ Dans la suite, nous allons étudier le contenu en fréquences de ce signal.
 
 Comme mentionné en partie 2, le pas de temps de ce signal discret est 0.05 s, et sa durée totale est de 1500 s.
 
-* **Quelle est la plage de fréquences et la résolution d’un spectre obtenu après FFT de ce signal ?**
+* **Question 15 : Quelle est la plage de fréquences et la résolution d’un spectre obtenu après FFT de ce signal ?**
 
 Pensez-vous qu’il soit pertinent d’appliquer directement la FFT à ce signal ?
 
@@ -98,11 +98,11 @@ Mais avant toute chose, il nous faut déterminer des paramètres pour cette fonc
 
 On sélectionne en général une puissance de 2 pour le nombre d’échantillons de la fenêtre glissante d’une STFT. 
 
-* **Sachant que le pas de temps est de 0.05 s, quelle puissance de 2 minimum faut-il pour obtenir un spectrogramme avec une résolution fréquentielle inférieure à 0,1 Hz ?**
+* **Question 16 : Sachant que le pas de temps est de 0.05 s, quelle puissance de 2 minimum faut-il pour obtenir un spectrogramme avec une résolution fréquentielle inférieure à 0,1 Hz ?**
 
 On ajoute aussi souvent un "overlap" à la fenêtre glissante pour "lisser" le spectrogramme.
 
-* **Quel doit être le nombre d’échantillons entre 2 positions de la fenêtre pour avoir un « overlap » de 50 % ?**
+* **Question 17 : Quel doit être le nombre d’échantillons entre 2 positions de la fenêtre pour avoir un « overlap » de 50 % ?**
 
 Vous pouvez maintenant initialiser une fonction STFT avec la commande suivante :
 
@@ -147,9 +147,9 @@ Vous devez obtenir une figure de la forme suivante :
 
 On observe comme des oscillations parasites au niveau des flèches rouges : 
 
-* **A quoi correspondent ces artéfacts ?**
+* **Question 18 : A quoi correspondent ces artéfacts ?**
 
-* **Pour réduire ces artéfacts en favorisant la résolution, quelle fenêtre choisiriez-vous entre Hann, Hamming et Blackman ?**
+* **Question 19 : Pour réduire ces artéfacts en favorisant la résolution, quelle fenêtre choisiriez-vous entre Hann, Hamming et Blackman ?**
 
 Vous pouvez créer une nouvelle fonction STFT avec votre fenêtre, en utilisant ré-utilisant la commande précédente :
 
@@ -188,9 +188,9 @@ Pour rappel, dans son article P. Lognonné donnait les caractéristiques fréque
 |"– […] body waves (in the short period range, 0.1–5 Hz)|
 |– […] surface waves (in the long period range, 0.01–0.1 Hz)"|
 
-* **Quel type de filtre utiliseriez-vous pour faire ressortir les ondes de surface et atténuer les ondes de volume ?**
+* **Question 20 : Quel type de filtre utiliseriez-vous pour faire ressortir les ondes de surface et atténuer les ondes de volume ?**
 
-* **Quelle(s) fréquence(s) de coupure choisiriez-vous ?**
+* **Question 21 : Quelle(s) fréquence(s) de coupure choisiriez-vous ?**
 
 Vous pouvez créer les coefficients de la partie non-récursive (b) et récursive (a) de votre filtre avec la commande suivante : 
 
@@ -224,6 +224,6 @@ Ce sont des artéfacts correspondant aux relaxations de l’instrument, qui est 
 
 Pour aller plus loin :
 
-* **Essayez d'augmenter l'ordre du filtre. Quel est l'impact sur le résultat ? Pouvez-vous expliquer ce qui se passe ?**
+* **Question bonus 1 : Essayez d'augmenter l'ordre du filtre. Quel est l'impact sur le résultat ? Pouvez-vous expliquer ce qui se passe ?**
 
-* **Essayez le même traitement sur les mesures des autres axes. Observez-vous la même chose ?**
+* **Question bonus 2 : Essayez le même traitement sur les mesures des autres axes. Observez-vous la même chose ?**

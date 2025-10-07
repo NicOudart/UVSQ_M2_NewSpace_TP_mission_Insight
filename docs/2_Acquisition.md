@@ -11,9 +11,9 @@ Dans la suite de l’article, P. Lognonné décrit les différents types de séi
 
 A partir de cet extrait, répondez aux questions suivantes :
 
-* **Quelle doit être la plage de fréquences des capteurs de SEIS afin de pouvoir mesurer les 3 types séismes ?**
+* **Question 7 : Quelle doit être la plage de fréquences des capteurs de SEIS afin de pouvoir mesurer les 3 types séismes ?**
 
-* **Quel doit être le nombre minimum d’échantillons acquis par seconde pour éviter le repliement de spectre ?**
+* **Question 8 : Quel doit être le nombre minimum d’échantillons acquis par seconde pour éviter le repliement de spectre ?**
 
 Pour information : la valeur choisie par l’équipe SEIS est de 20 échantillons par seconde.
 
@@ -26,9 +26,9 @@ Dans son article, P. Lognonné décrit ensuite la conversion analogique-numériq
 
 En vous basant sur cet extrait, répondez aux questions suivantes :
 
-* **Que représente ici 1 bit en termes de tension (arrondi au µV) ?**
+* **Question 9 : Que représente ici 1 bit en termes de tension (arrondi au µV) ?**
 
-* **Avec la convention du complément à 2, comment serait représenté en binaire une tension de -3V ?**
+* **Question 10 : Avec la convention du complément à 2, comment serait représenté en binaire une tension de -3V ?**
 
 Pour répondre à cette dernière question, écrivez une fonction Python qui convertisse une tension entre -25 et 25 V en un binaire de 24 bits en respectant la convention du complément à 2.
 Le nombre binaire pourra être retourné sous la forme d'un string.

@@ -19,10 +19,10 @@ Voici selon le JPL les informations du budget de liaison Mars-Terre des satellit
 |Pertes en réception        |3 dB              |
 |Bruit                      |-170 dB           |
 
-* **Ecrivez une fonction Python qui prenne ces paramètres en entrée, et calcule le SNR à la réception sur Terre. Quel SNR obtenez-vous pour les valeurs du tableau ? Est-ce un plutôt bon SNR ?**
+* **Question 11 : Ecrivez une fonction Python qui prenne ces paramètres en entrée, et calcule le SNR à la réception sur Terre. Quel SNR obtenez-vous pour les valeurs du tableau ? Est-ce un plutôt bon SNR ?**
 
 Le JPL indique qu’un débit de 63 bits/s était attendu pour la communication Mars-Terre des CubeSats MarCO.
 
 En faisant l’hypothèse d’un bruit blanc Gaussien, et avec le SNR obtenu à la question précédente :
 
-* **Ecrivez une fonction Python qui calcule la largeur de spectre minimum nécessaire pour atteindre un débit donné. Quelle largeur de spectre obtenez-vous pour 63 bits/s ? Est-ce réaliste ?**
+* **Question 12 : Ecrivez une fonction Python qui calcule la largeur de spectre minimum nécessaire pour atteindre un débit donné. Quelle largeur de spectre obtenez-vous pour 63 bits/s ? Est-ce réaliste ?**

@@ -31,14 +31,14 @@ En voici quelques extraits :
 
 A partir de ces extraits, et en faisant appel à vos connaissances sur les articles scientifiques et les missions d'exploration spatiale, répondez aux questions suivantes :
 
-* **De quelle mission de la NASA l’instrument SEIS fait-il partie ?**
+* **Question 1 : De quelle mission de la NASA l’instrument SEIS fait-il partie ?**
 
-* **Quel est l’objectif scientifique de cette mission ?**
+* **Question 2: Quel est l’objectif scientifique de cette mission ?**
 
-* **De quel type de plateforme s’agit-il ?**
+* **Question 3 : De quel type de plateforme s’agit-il ?**
 
-* **Quels autres instruments contient la plateforme ? Précisez pour chacun s’il s’agit de remote-sensing ou de direct-sensing, s’il s’agit d’un instrument actif ou passif.**
+* **Question 4 : Quels autres instruments contient la plateforme ? Précisez pour chacun s’il s’agit de remote-sensing ou de direct-sensing, s’il s’agit d’un instrument actif ou passif.**
 
-* **Quels capteurs contient SEIS ?**
+* **Question 5 : Quels capteurs contient SEIS ?**
 
-* **Quel institut est responsable du développement de l’instrument ? Quel est probablement le rôle de P. Lognonné vis-à-vis de SEIS ?**
+* **Question 6 : Quel institut est responsable du développement de l’instrument ? Quel est probablement le rôle de P. Lognonné vis-à-vis de SEIS ?**

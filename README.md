@@ -25,6 +25,8 @@ Lors de ce TP, vous allez :
 
 Ce TP fera appel à de la programmation Python pour les calculs et les traitements.
 
+Vous trouverez en fin de TP les réponses aux questions.
+
 ---
 
 ## Credits
