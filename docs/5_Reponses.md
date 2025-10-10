@@ -1,6 +1,6 @@
 # Etape 5 : Réponses aux questions
 
-<--
+<!---
 
 * **Question 1 :** L'instrument SEIS fait partie de la mission Insight de la NASA.
 
@@ -40,4 +40,4 @@
 
 * **Questions 20 et 21 :** Pour isoler les ondes de surface, il faut utiliser un filtre passe-bande de fréquences de coupure 0.01 et 0.1 Hz.
 
--->
+--->
