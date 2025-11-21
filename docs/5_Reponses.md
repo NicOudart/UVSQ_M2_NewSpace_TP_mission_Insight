@@ -1,7 +1,5 @@
 # Etape 5 : Réponses aux questions
 
-<!---
-
 * **Question 1 :** L'instrument SEIS fait partie de la mission Insight de la NASA.
 
 * **Question 2 :** L'objectif scientifique de la mission est d'étudier la structure interne de Mars à travers des mesures géophysiques, notamment sismiques, afin de mieux comprendre sa formation et son évolution.
@@ -39,5 +37,3 @@
 * **Question 19 :** Pour favoriser la résolution, il vaut mieux choisir la fenêtre de Hamming.
 
 * **Questions 20 et 21 :** Pour isoler les ondes de surface, il faut utiliser un filtre passe-bande de fréquences de coupure 0.01 et 0.1 Hz.
-
---->
