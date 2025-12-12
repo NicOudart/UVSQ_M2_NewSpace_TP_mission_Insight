@@ -26,7 +26,7 @@
 
 * **Question 14 :** Le signal est causal, il est aléatoire car visiblement bruité, et il est non stationnaire.
 
-* **Question 15 :** La plage de fréquence après FFT sera de 0-10 Hz. La résolution du spectre sera de 1/1500 Hz.
+* **Question 15 :** La plage de fréquence après FFT sera de 0-20 Hz. La résolution du spectre sera de 1/1500 Hz.
 
 * **Question 16 :** Il faut 256 échantillons pour la fenêtre glissante.
 
