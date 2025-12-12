@@ -217,6 +217,8 @@ plt.plot(t,vbb_w_filt,'r-')
 
 Donnez alors des légendes pertinentes à votre figure.
 
+![Série temporelle filtrée](img/Processed_time_series.png)
+
 On observe à présent les 2 types d’ondes de surface, indiquées par des flèches rouges. 
 
 Le filtrage a aussi fait ressortir des pics, indiqués par des flèches vertes. 
