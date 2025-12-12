@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Nicolas OUDART" /><link rel="canonical" href="https://nicoudart.github.io/UVSQ_M2_NewSpace_TP_mission_Insight/4_Traitement/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>4. Traitement et analyse - UVSQ_M2_NewSpace_TP_mission_Insight</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "4. Traitement et analyse";
+        var mkdocs_page_input_path = "4_Traitement.md";
+        var mkdocs_page_url = "/UVSQ_M2_NewSpace_TP_mission_Insight/4_Traitement/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> UVSQ_M2_NewSpace_TP_mission_Insight
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../1_Contexte/">1. Contexte scientifique</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../2_Acquisition/">2. Acquisition des mesures</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3_Transmission/">3. Transmission des données</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">4. Traitement et analyse</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#lecture-et-affichage-des-donnees">Lecture et affichage des données</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analyse-spectrale-par-fft">Analyse spectrale par FFT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analyse-spectrale-par-stft">Analyse spectrale par STFT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analyse-apres-filtrage">Analyse après filtrage</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../5_Reponses/">5. Réponses aux questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">UVSQ_M2_NewSpace_TP_mission_Insight</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">4. Traitement et analyse</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="etape-4-traitement-et-analyse-des-donnees">Etape 4 : Traitement et analyse des données</h1>
+<p>Le 4 mai 2022, un séisme d’une magnitude estimée de 5 a été mesuré par SEIS. 
+Nommé « S1222a », c’est le plus intense jamais détecté sur Mars. 
+Contrairement à d’autres séismes importants mesurés par SEIS, il n’aurait pas pour origine un impact météoritique. 
+Il s’agirait donc d’un évènement tectonique, qui a potentiellement déclenché des avalanches de poussière dans la région.</p>
+<p>Vous trouverez <a href="https://github.com/NicOudart/UVSQ_M2_NewSpace_TP_mission_Insight/tree/main/example">ici</a> un fichier hdf5 « Insight_SEIS_S1222a.h5 » contenant l'enregistrement de ce séisme par SEIS.</p>
+<p>Vous allez écrire un script Python pour ouvrir, traiter et analyser les données des capteurs VBB (axes u,v,w) de SEIS contenant l’enregistrement du séisme S1222a.</p>
+<p>Pour commencer, importez les bibliothèques suivantes :</p>
+<pre><code>import h5py
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import ShortTimeFFT
+from scipy.signal.windows import *
+from scipy.signal import butter, lfilter
+</code></pre>
+<p>Vous en aurez besoin dans cette partie du TP :</p>
+<ul>
+<li>
+<p>h5py vous servira à importer les fichiers contenant les données (format hdf5).</p>
+</li>
+<li>
+<p>numpy vous servira à manipuler des matrices de données.</p>
+</li>
+<li>
+<p>matplotlib vous servira à afficher des graphiques.</p>
+</li>
+<li>
+<p>scipy.signal vous servira à fenêtrer / appliquer une STFT / filtrer un signal.</p>
+</li>
+</ul>
+<h2 id="lecture-et-affichage-des-donnees">Lecture et affichage des données</h2>
+<p>Ouvrez le fichier hdf5 avec la commande suivante, en remplaçant « path » par le chemin du fichier sur votre ordinateur :</p>
+<pre><code>hf = h5py.File('path')
+</code></pre>
+<p>Le fichier contient 4 vecteurs de données : ‘time’ contenant l’axe des temps (s) et ‘VBB_u’ / ‘VBB_v’ / ‘VBB_w’ contenant les mesures des axes u/v/w du capteur VBB (mm/s). </p>
+<p>Pour récupérer ces vecteurs, il faut utiliser les commandes :</p>
+<pre><code>t = hf.get('time')
+vbb_u = hf.get('VBB_u')
+vbb_v = hf.get('VBB_v')
+vbb_w = hf.get('VBB_w')
+</code></pre>
+<p>t, vbb_u, vbb_v et vbb_w sont ici des objets de la librairie h5py, et ne sont pas directement utilisables pour des traitements / affichages. 
+Il faut les convertir en numpy arrays avec les commandes suivantes : </p>
+<pre><code>t = np.array(t)
+vbb_u = np.array(vbb_u)
+vbb_v = np.array(vbb_v)
+vbb_w = np.array(vbb_w)
+</code></pre>
+<p>Vous pouvez maintenant afficher les données avec matplotlib. 
+Voici par exemple pour vbb_u :</p>
+<pre><code>plt.plot(t,vbb_u,'r-')
+plt.xlabel('…')
+plt.ylabel('…')
+plt.title('…')
+plt.show()
+</code></pre>
+<ul>
+<li><strong>Question 13 : Affichez sous la forme d’une figure le signal de VBB sur l’axe u, avec un titre et des légendes correctes.</strong></li>
+</ul>
+<p>Vous devriez obtenir une série temporelle de la forme suivante :</p>
+<p><img alt="Série temporelle brute" src="../img/Raw_time_series.png" /></p>
+<ul>
+<li><strong>Question 14 : Ce signal est-il causal ou acausal ? Est-il déterministe ou aléatoire ? Est-il périodique ou stationnaire ?</strong></li>
+</ul>
+<h2 id="analyse-spectrale-par-fft">Analyse spectrale par FFT</h2>
+<p>Dans la suite, nous allons étudier le contenu en fréquences de ce signal.</p>
+<p>Comme mentionné en partie 2, le pas de temps de ce signal discret est 0.05 s, et sa durée totale est de 1500 s.</p>
+<ul>
+<li><strong>Question 15 : Quelle est la plage de fréquences et la résolution d’un spectre obtenu après FFT de ce signal ?</strong></li>
+</ul>
+<p>Pensez-vous qu’il soit pertinent d’appliquer directement la FFT à ce signal ?</p>
+<p>Non, car la fréquence et l'amplitude de celui-ci varie au cours du temps.
+Dans la suite, vous allez chercher à produire un spectrogramme de ce signal, une représentation plus adaptée pour son analyse.</p>
+<h2 id="analyse-spectrale-par-stft">Analyse spectrale par STFT</h2>
+<p>Pour afficher un spectrogramme des données de SEIS, vous allez utiliser la fonction STFT de la bibliothèque Python « scipy ». 
+Mais avant toute chose, il nous faut déterminer des paramètres pour cette fonction.</p>
+<p>On sélectionne en général une puissance de 2 pour le nombre d’échantillons de la fenêtre glissante d’une STFT. </p>
+<ul>
+<li><strong>Question 16 : Sachant que le pas de temps est de 0.05 s, quelle puissance de 2 minimum faut-il pour obtenir un spectrogramme avec une résolution fréquentielle inférieure à 0,1 Hz ?</strong></li>
+</ul>
+<p>On ajoute aussi souvent un "overlap" à la fenêtre glissante pour "lisser" le spectrogramme.</p>
+<ul>
+<li><strong>Question 17 : Quel doit être le nombre d’échantillons entre 2 positions de la fenêtre pour avoir un « overlap » de 50 % ?</strong></li>
+</ul>
+<p>Vous pouvez maintenant initialiser une fonction STFT avec la commande suivante :</p>
+<pre><code>STFT = ShortTimeFFT(win=np.ones(x),hop=y,fs=z,mfft=x*8,scale_to='magnitude')
+</code></pre>
+<p>Il faut remplacer x par le nombre d’échantillons dans la fenêtre glissante, y par le nombre d’échantillons entre 2 positions de la fenêtre, z par la fréquence d’échantillonnage du signal en Hz.
+Le facteur 8 sur le paramètre « mfft » permet de réaliser une interpolation X8 par « zero-padding ». 
+L’amplitude des spectrogrammes sera normalisée par la fonction.</p>
+<p>Calculez le spectrogramme du signal de VBB mesuré pour l’axe u avec :</p>
+<pre><code>spec_vbb_u = STFT.stft(vbb_u)
+</code></pre>
+<p>Créez les vecteurs temps et fréquences correspondants à votre spectrogramme avec les commandes suivantes :</p>
+<pre><code>t_axis = np.linspace(0,T,np.shape(spec_vbb_u)[1])
+f_axis = np.linspace(0,z/2,np.shape(spec_vbb_u)[0])
+</code></pre>
+<p>Il faut remplacer z par la fréquence d’échantillonnage du signal en Hz, et T par la durée total du signal en s.</p>
+<p>Vous pouvez à présent afficher votre spectrogramme avec les commandes suivantes :</p>
+<pre><code>plt.pcolormesh(t_axis,f_axis,abs(spec_vbb_u),cmap='binary')
+plt.xlabel('…')
+plt.ylabel('…')
+plt.colorbar()
+plt.show()
+</code></pre>
+<p>Donnez des légendes pertinentes à votre figure.</p>
+<p>Vous devez obtenir une figure de la forme suivante :</p>
+<p><img alt="Spectrogramme brut" src="../img/Raw_spectrogram.png" /></p>
+<p>On observe comme des oscillations parasites au niveau des flèches rouges : </p>
+<ul>
+<li>
+<p><strong>Question 18 : A quoi correspondent ces artéfacts ?</strong></p>
+</li>
+<li>
+<p><strong>Question 19 : Pour réduire ces artéfacts en favorisant la résolution, quelle fenêtre choisiriez-vous entre Hann, Hamming et Blackman ?</strong></p>
+</li>
+</ul>
+<p>Vous pouvez créer une nouvelle fonction STFT avec votre fenêtre, en utilisant ré-utilisant la commande précédente :</p>
+<pre><code>STFT = ShortTimeFFT(win=hann(x),hop=y,fs=z,mfft=x*8,scale_to='magnitude')
+</code></pre>
+<p>Il faut remplacer "hann" par le nom de la fenêtre que vous avez choisie.</p>
+<p>Appliquez cette nouvelle STFT au signal, et générez un nouveau spectrogramme avec des légendes correctes.</p>
+<p>Vous devez obtenir une figure de la forme suivante :</p>
+<p><img alt="Spectrogramme traité" src="../img/Processed_spectrogram.png" /></p>
+<h2 id="analyse-apres-filtrage">Analyse après filtrage</h2>
+<p>Les 2 types d’ondes visibles sur le spectrogramme arrivent à des temps différents car elles ne se propagent pas à la même vitesse dans le sol martien.<br />
+D’où P comme « primaire », et S comme « secondaire ».
+On utilise d’ailleurs souvent cette différence de temps d’arrivée pour mesurer la distance à l’épicentre du séisme.
+Ces ondes sont des ondes de volume.</p>
+<p>Après les ondes de volume, arrivent en général les ondes de surface.
+Elles sont divisées en 2 catégories : ondes de Rayleigh et ondes de Love.
+De par leur nature, ce sont ces ondes sismiques qui provoquent le plus de dégâts à la surface de la Terre.</p>
+<p><img alt="Ondes sismiques" src="../img/Seismic_waves.png" /></p>
+<p>Les ondes de surface ne sont pas visibles sur notre spectrogramme car masquées par les ondes de volume. 
+Afin de les observer, nous allons donc devoir filtrer le signal.</p>
+<p>Pour rappel, dans son article P. Lognonné donnait les caractéristiques fréquentielles des différentes ondes sismiques (« body waves » = ondes de volume) :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Extrait 6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"– […] body waves (in the short period range, 0.1–5 Hz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">– […] surface waves (in the long period range, 0.01–0.1 Hz)"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Question 20 : Quel type de filtre utiliseriez-vous pour faire ressortir les ondes de surface et atténuer les ondes de volume ?</strong></p>
+</li>
+<li>
+<p><strong>Question 21 : Quelle(s) fréquence(s) de coupure choisiriez-vous ?</strong></p>
+</li>
+</ul>
+<p>Vous pouvez créer les coefficients de la partie non-récursive (b) et récursive (a) de votre filtre avec la commande suivante : </p>
+<pre><code>b,a = butter(3,k,fs=z,btype='n')
+</code></pre>
+<p>Vous devez remplacer k par la fréquence de coupure du filtre (ou une liste s’il y en a plusieurs, en Hz), remplacer z par la fréquence d’échantillonnage du signal (en Hz), et n le nom du filtre que vous souhaitez utiliser (« lowpass » pour passe-bas, « highpass » pour passe-haut, « bandpass » pour passe-bande, « bandstop » pour coupe-bande).
+Le paramètre 3 est l’ordre du modèle.</p>
+<p>La fonction s’appelle « Butter » en référence à la technique de Butterworth utilisée pour générer le filtre.</p>
+<p>Appliquez votre filtre aux données VBB de l’axe w avec la commande suivante :</p>
+<pre><code>vbb_w_filt = lfilter(b,a,vbb_w)
+</code></pre>
+<p>Vous pouvez ensuite afficher le signal de la même façon que précédemment :</p>
+<pre><code>plt.plot(t,vbb_w_filt,'r-')
+</code></pre>
+<p>Donnez alors des légendes pertinentes à votre figure.</p>
+<p><img alt="Série temporelle filtrée" src="../img/Processed_time_series.png" /></p>
+<p>On observe à présent les 2 types d’ondes de surface, indiquées par des flèches rouges. </p>
+<p>Le filtrage a aussi fait ressortir des pics, indiqués par des flèches vertes. 
+Ce sont des artéfacts correspondant aux relaxations de l’instrument, qui est soumis à de forts contrastes de température sur Mars.</p>
+<p>Pour aller plus loin :</p>
+<ul>
+<li>
+<p><strong>Question bonus 1 : Essayez d'augmenter l'ordre du filtre. Quel est l'impact sur le résultat ? Pouvez-vous expliquer ce qui se passe ?</strong></p>
+</li>
+<li>
+<p><strong>Question bonus 2 : Essayez le même traitement sur les mesures des autres axes. Observez-vous la même chose ?</strong></p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../3_Transmission/" class="btn btn-neutral float-left" title="3. Transmission des données"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../5_Reponses/" class="btn btn-neutral float-right" title="5. Réponses aux questions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../3_Transmission/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../5_Reponses/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

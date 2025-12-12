@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Nicolas OUDART" /><link rel="canonical" href="https://nicoudart.github.io/UVSQ_M2_NewSpace_TP_mission_Insight/2_Acquisition/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>2. Acquisition des mesures - UVSQ_M2_NewSpace_TP_mission_Insight</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2. Acquisition des mesures";
+        var mkdocs_page_input_path = "2_Acquisition.md";
+        var mkdocs_page_url = "/UVSQ_M2_NewSpace_TP_mission_Insight/2_Acquisition/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> UVSQ_M2_NewSpace_TP_mission_Insight
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../1_Contexte/">1. Contexte scientifique</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">2. Acquisition des mesures</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../3_Transmission/">3. Transmission des données</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../4_Traitement/">4. Traitement et analyse</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../5_Reponses/">5. Réponses aux questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">UVSQ_M2_NewSpace_TP_mission_Insight</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">2. Acquisition des mesures</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="etape-2-acquisition-des-mesures-par-linstrument">Etape 2 : Acquisition des mesures par l'instrument</h1>
+<p>Dans la suite de l’article, P. Lognonné décrit les différents types de séismes qui étaient attendus sur Mars en 2019 :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Extrait 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"[…] the most reliable seismological secondary data that could be extracted should be:</td>
+</tr>
+<tr>
+<td style="text-align: left;">– travel times of body waves (in the short period range, 0.1–5 Hz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">– group and phase velocities of Rayleigh surface waves (in the long period range, 0.01–0.1 Hz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">– eigenfrequencies of spheroidal fundamental normal modes in the frequency range of 0.01–0.02 Hz."</td>
+</tr>
+</tbody>
+</table>
+<p>A partir de cet extrait, répondez aux questions suivantes :</p>
+<ul>
+<li>
+<p><strong>Question 7 : Quelle doit être la plage de fréquences des capteurs de SEIS afin de pouvoir mesurer les 3 types séismes ?</strong></p>
+</li>
+<li>
+<p><strong>Question 8 : Quel doit être le nombre minimum d’échantillons acquis par seconde pour éviter le repliement de spectre ?</strong></p>
+</li>
+</ul>
+<p>Pour information : la valeur choisie par l’équipe SEIS est de 20 échantillons par seconde.</p>
+<p>Dans son article, P. Lognonné décrit ensuite la conversion analogique-numérique des signaux mesurés par VBB (ADC = CAN en anglais) :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Extrait 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">"For the acquisition of the science channels a 24 bit sigma-delta ADC (AD7712) has been chosen […]</td>
+</tr>
+<tr>
+<td style="text-align: left;">Full scale range are ±25 Volt for the VBBs (for both velocity and position outputs)."</td>
+</tr>
+</tbody>
+</table>
+<p>En vous basant sur cet extrait, répondez aux questions suivantes :</p>
+<ul>
+<li>
+<p><strong>Question 9 : Que représente ici 1 bit en termes de tension (arrondi au µV) ?</strong></p>
+</li>
+<li>
+<p><strong>Question 10 : Avec la convention du complément à 2, comment serait représenté en binaire une tension de -3V ?</strong></p>
+</li>
+</ul>
+<p>Pour répondre à cette dernière question, écrivez une fonction Python qui convertisse une tension entre -25 et 25 V en un binaire de 24 bits en respectant la convention du complément à 2.
+Le nombre binaire pourra être retourné sous la forme d'un string.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1_Contexte/" class="btn btn-neutral float-left" title="1. Contexte scientifique"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../3_Transmission/" class="btn btn-neutral float-right" title="3. Transmission des données">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1_Contexte/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3_Transmission/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
